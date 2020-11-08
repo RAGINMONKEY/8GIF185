@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-     Player player;
+    SwitchCharacters player;
+    public GameObject players;
     Vector3 fireDirection;
+    public int current;
 
    [Header("Attributes")]
 
@@ -23,15 +25,16 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = new Player();   
+        player = players.GetComponent<SwitchCharacters>();  
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-            ArrayList cont = player.getControl();
+        if (current == player.getCurrCar())
+        {
 
+            ArrayList cont = player.getControl();
             if(cont[0] == ("clavier"))
             {
               Vector3 mouse = Input.mousePosition;
@@ -46,16 +49,17 @@ public class Tower : MonoBehaviour
                 Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
                 partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
                 }
-            if (Input.GetKeyDown("space"))
+                print(cont[2].ToString());
+            if (Input.GetKeyDown(cont[2].ToString()))
             {
                 Shoot();
             }
-
+            }
 
         }
     }
 
-    public void setPlayer(Player player)
+    public void setPlayer(SwitchCharacters player)
     {
         this.player = player;
     }

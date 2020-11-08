@@ -73,4 +73,23 @@ public class SwitchCharacters : MonoBehaviour
                 break;
         }
     }
+
+    public int getCurrCar()
+    {
+        return currentCaracter;
+    }
+
+    public ArrayList getControl()
+    {
+        ArrayList cont = new ArrayList();    // declaration
+        cont.Add("clavier"); // clavier ou manette
+        cont.Add("mouse");
+        cont.Add("space"); // touche pour tirer reconnu par unity
+        return cont;
+    }
+
+    /*public SwitchCharacters getPlayer()
+    {
+        return this;
+    }*/
 }
