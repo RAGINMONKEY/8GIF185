@@ -8,32 +8,67 @@ public class ProjectileScript : MonoBehaviour
     public float speed = 50f;
     public GameObject impactEffect;
     public float explosionRadius = 0f;
-    
+    public float range;
+    private Transform target;
+    private string enemyTag = "Enemy";
+
     public AudioClip bigBong;
 
-    private Transform target;
+    private Vector3 direct;
     
   
     void Update()
     {
-        if(target == null)
+        if(this.transform.position.x > 1000.0)
         {
             Destroy(gameObject);
             return;
         }
 
-       
-        Vector3 direction = target.position - transform.position;
+
+        Vector3 direction = direct;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(direction.magnitude <= distanceThisFrame)
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDisance = range;
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
         {
-            HitTarget();
-            return;
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distanceToEnemy < shortestDisance)
+            {
+                shortestDisance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
         }
 
-        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
+        if (nearestEnemy != null && shortestDisance <= range)
+        {
+            target = nearestEnemy.transform;
+        }
+        else
+        {
+            target = null;
+        }
+
+        if (target != null)
+        {
+            //print(target.transform.position);
+            //print(this.transform.position);
+            //print("");
+            if (target.transform.position.magnitude <= distanceThisFrame)
+            {
+                //HitTarget();
+                //return;
+            }
+        }
+        Vector3 trans = direction.normalized * distanceThisFrame;
+        trans.y = 0;
+        transform.Translate(trans, Space.World);
+        transform.LookAt(direct);
     }
 
     void HitTarget()
@@ -69,8 +104,9 @@ public class ProjectileScript : MonoBehaviour
             }
         }
     }
-    public void Seek(Transform _target)
+    public void Seek(Vector3 _target)
     {
-        target = _target;
+        direct = _target;
     }
+
 }

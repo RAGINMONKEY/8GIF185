@@ -753,7 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4690228071485527190}
   - component: {fileID: 4632659284173493114}
-  - component: {fileID: 6349457176938599716}
+  - component: {fileID: 6587547089412158707}
   m_Layer: 0
   m_Name: DarkElfTurret
   m_TagString: Untagged
@@ -797,7 +797,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6349457176938599716
+--- !u!114 &6587547089412158707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -806,17 +806,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4692098197277532948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa080500366be94a99397d9b3a09839, type: 3}
+  m_Script: {fileID: 11500000, guid: 82e2229aeda434c4c9694a20f3016553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   partToRotate: {fileID: 4686035050845579854}
   projectilePrefab: {fileID: 6431959423231414035, guid: 8bca430a6bf8dfa47bff793ef659e62f, type: 3}
   firePoint: {fileID: 6349457177493309924}
-  isRanged: 1
-  range: 15
-  turnSpeed: 5
-  fireRate: 1
-  cost: 40
+  range: 0
+  turnSpeed: 2
+  fireRate: 0
+  cost: 0
+  HauteurDeTir: 1
 --- !u!1 &4692099234243937492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,7 +1748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6349457177493309927}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.93644047, y: 1.325, z: -0.020407677}
+  m_LocalPosition: {x: -0.011, y: 0.5, z: -0.020407677}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 4690228071485527190}
