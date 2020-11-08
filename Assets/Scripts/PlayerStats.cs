@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public static int Life;
-    public int startLife = 100;
+    public int startLife = 100000;
     public Text LifeText;
 
 
@@ -22,6 +22,6 @@ public class PlayerStats : MonoBehaviour
     }
     void IncrementLife()
     {
-        Life += 1;
+        Life += 1000;
     }
 }

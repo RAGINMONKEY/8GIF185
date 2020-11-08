@@ -35,8 +35,8 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
             return;
-
-        Vector3 direction = target.position - transform.position;
+        
+        Vector3 direction = Input.mousePosition - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
 
@@ -85,7 +85,9 @@ public class Turret : MonoBehaviour
         ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
 
         if (projectile != null)
-            projectile.Seek(target);
+        {
+            //projectile.Seek(target);
+        }
     }
 
     private void OnDrawGizmosSelected()
