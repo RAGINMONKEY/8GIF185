@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     private void Update()
     {
-       if(countdown <= 0f)
+        if(countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
