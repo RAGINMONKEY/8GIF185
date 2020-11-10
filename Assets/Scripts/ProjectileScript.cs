@@ -15,11 +15,13 @@ public class ProjectileScript : MonoBehaviour
     public AudioClip bigBong;
 
     private Vector3 direct;
-    
-  
+    private float timer = 0.0f;
+
+
+
     void Update()
     {
-        if(this.transform.position.x > 1000.0)
+        if(this.transform.position.x > 100.0 || this.transform.position.z > 100.0)
         {
             Destroy(gameObject);
             return;
@@ -66,9 +68,15 @@ public class ProjectileScript : MonoBehaviour
             }
         }
         Vector3 trans = direction.normalized * distanceThisFrame;
-        trans.y = 0;
         transform.Translate(trans, Space.World);
         transform.LookAt(direct);
+
+        timer += Time.deltaTime;
+        int seconds = (int)(timer % 60);
+        if (seconds > 10.0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void HitTarget()
@@ -84,6 +92,7 @@ public class ProjectileScript : MonoBehaviour
         {
             Damage(target);
         }
+
         Destroy(gameObject);
     }
 
