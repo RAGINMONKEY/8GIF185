@@ -62,9 +62,9 @@ public class Tower : MonoBehaviour
                 movement = this.camera.transform.forward;
                 fireDirection = movement;
 
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
+               /* Quaternion lookRotation = Quaternion.LookRotation(direction);
                 Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-                partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+                partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);*/
                 }
                // print(cont[2].ToString());
 
@@ -87,6 +87,13 @@ public class Tower : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(projectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
         ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
+        if(current == 1)
+        {
+            projectile.tag = "Blue";
+        }else if(current == 2)
+        {
+            projectile.tag = "Red";
+        }
 
         if (projectile != null)
             projectile.Seek(fireDirection);
@@ -100,5 +107,10 @@ public class Tower : MonoBehaviour
     public void setCurrent (int curr)
     {
         this.current = curr;
+    }
+
+    public void rotatePart(float radian)
+    {
+        partToRotate.RotateAround(this.transform.position, Vector3.up, radian);
     }
 }

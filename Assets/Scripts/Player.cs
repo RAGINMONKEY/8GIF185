@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float maxInteractionDistance = 1f;
 
     public GameObject camera;
-    
+
 
     private bool onTower;
     private Tower TowerOn;
@@ -45,14 +45,14 @@ public class Player : MonoBehaviour
         }
         else interactText.GetComponent<TMP_Text>().enabled = false;
 
-        if(onTower == true)
+        if (onTower == true)
         {
-            if(Input.GetButtonDown("Cancel"))
+            if (Input.GetButtonDown("Cancel"))
             {
                 SwitchToPlayerView();
             }
         }
-      
+
 
     }
 
@@ -62,7 +62,10 @@ public class Player : MonoBehaviour
         TowerOn.setCurrent(0);
 
         TowerOn.camera.SetActive(false);
-        this.GetComponent<Camera>().enabled = true;
+        if (this.GetComponent<Camera>() != null)
+        {
+            this.GetComponent<Camera>().enabled = true;
+        }
 
         onTower = false;
         TowerOn = null;
@@ -76,9 +79,12 @@ public class Player : MonoBehaviour
         TowerOn.setCurrent(getNumber());
 
         TowerOn.camera.SetActive(true);
-        this.GetComponent<Camera>().enabled = false;
+        if (this.GetComponent<Camera>() != null)
+        {
+            this.GetComponent<Camera>().enabled = false;
+        }
     }
-   
+
     public ArrayList getControl()
     {
         ArrayList cont = new ArrayList();    // declaration
@@ -108,4 +114,18 @@ public class Player : MonoBehaviour
         return number;
     }
 
+    public void switchP(){
+
+        if (onTower)
+        {
+            if (this.GetComponentInParent<SwitchCharacters>().getCurrCar() != number)
+            {
+                TowerOn.camera.SetActive(false);
+            }
+            else if (this.GetComponentInParent<SwitchCharacters>().getCurrCar() == number)
+            {
+                TowerOn.camera.SetActive(true);
+            }
+        }
+    }
 }

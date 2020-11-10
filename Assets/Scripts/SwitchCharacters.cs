@@ -47,6 +47,9 @@ public class SwitchCharacters : MonoBehaviour
                 Character1.GetComponent<Player>().enabled = true;
                 Character2.GetComponent<Player>().enabled = false;
 
+                Character1.GetComponentInChildren<Player>().switchP();
+                Character2.GetComponentInChildren<Player>().switchP();
+
                 Character1.GetComponent<PlayerMovementScript>().enabled = true;
                 Character2.GetComponent<PlayerMovementScript>().enabled = false;
 
@@ -68,6 +71,9 @@ public class SwitchCharacters : MonoBehaviour
 
                 Character1.GetComponent<Player>().enabled = false;
                 Character2.GetComponent<Player>().enabled = true;
+
+                Character1.GetComponentInChildren<Player>().switchP();
+                Character2.GetComponentInChildren<Player>().switchP();
 
                 Character1.GetComponent<PlayerMovementScript>().enabled = false;
                 Character2.GetComponent<PlayerMovementScript>().enabled = true;
