@@ -70,13 +70,6 @@ public class ProjectileScript : MonoBehaviour
         Vector3 trans = direction.normalized * distanceThisFrame;
         transform.Translate(trans, Space.World);
         transform.LookAt(direct);
-
-        timer += Time.deltaTime;
-        int seconds = (int)(timer % 60);
-        if (seconds > 10.0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void HitTarget()

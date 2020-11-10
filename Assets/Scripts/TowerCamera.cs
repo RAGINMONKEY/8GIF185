@@ -36,11 +36,13 @@ public class TowerCamera : MonoBehaviour
         {
             transform.RotateAround(this.transform.parent.transform.position, Vector3.up, -fDistanceRadians);
             yaw -= fDistanceRadians;
+            transform.parent.GetComponent<Tower>().rotatePart(-fDistanceRadians);
         }
         if (x > 0)
         {
             transform.RotateAround(this.transform.parent.transform.position, Vector3.up, fDistanceRadians);
             yaw += fDistanceRadians;
+            transform.parent.GetComponent<Tower>().rotatePart(fDistanceRadians);
         }
     }
 }
