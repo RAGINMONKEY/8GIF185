@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 4731140352038059895}
   - component: {fileID: 8891473988210765450}
   - component: {fileID: -4489822237220699327}
+  - component: {fileID: -1589441764581276134}
   m_Layer: 0
-  m_Name: TempEnemy 1
+  m_Name: TempEnemyRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,5 +159,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69f81fe8047153b43958e97f1d85245e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1589441764581276134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097377860805588883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adfd34071fc6e94ea024dc30d1c3190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

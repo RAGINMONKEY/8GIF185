@@ -5,37 +5,77 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public Transform redEnemyPrefab;
+    public Transform blueEnemyPrefab;
+    public Transform magentaEnemyPrefab;
     public Transform spawnPoint;
 
     public float timeBetweenWaves = 5f;
-    private float countdown = 1f;
-    private int waveIndex = 0;
+    // private float countdown = 1f;
+    private int waveIndex = 1;
     private void Update()
     {
-       if(countdown <= 0f)
+        if(Input.GetKeyUp(KeyCode.R))
         {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
+            StartCoroutine(SpawnRedWave());
+            //countdown = timeBetweenWaves;
+        } 
+        
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            StartCoroutine(SpawnBlueWave());
+        } 
+        
+        if (Input.GetKeyUp(KeyCode.M))
+        {
+            StartCoroutine(SpawnMagentaWave());
         }
 
-        countdown -= Time.deltaTime;
+        //countdown -= Time.deltaTime;
     }
 
-    IEnumerator SpawnWave()
+    IEnumerator SpawnRedWave()
     {
-        waveIndex++;
-
         for (int i = 0; i < waveIndex; i++)
         {
-            SpawnEnemy();
+            SpawnRedEnemy();
             yield return new WaitForSeconds(0.5f);
         }
    
     }
 
-    void SpawnEnemy()
+    void SpawnRedEnemy()
     {
-        Instantiate(enemyPrefab,spawnPoint.position, spawnPoint.rotation);
+        Instantiate(redEnemyPrefab,spawnPoint.position, spawnPoint.rotation);
+    }
+
+    IEnumerator SpawnBlueWave()
+    {
+        for (int i = 0; i < waveIndex; i++)
+        {
+            SpawnBlueEnemy();
+            yield return new WaitForSeconds(0.5f);
+        }
+
+    }
+
+    void SpawnBlueEnemy()
+    {
+        Instantiate(blueEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    IEnumerator SpawnMagentaWave()
+    {
+        for (int i = 0; i < waveIndex; i++)
+        {
+            SpawnMagentaEnemy();
+            yield return new WaitForSeconds(0.5f);
+        }
+
+    }
+
+    void SpawnMagentaEnemy()
+    {
+        Instantiate(magentaEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }

@@ -3,7 +3,11 @@ guid: 8e2407219c9cf6d41a4102bc52f958aa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - redEnemyPrefab: {fileID: 3097377860805588895, guid: 23eaa5e024af64044b4af55334c7e138, type: 3}
+  - blueEnemyPrefab: {fileID: 3097377860805588895, guid: 75883ef0b8315a24da904f714e8fcf77, type: 3}
+  - magentaEnemyPrefab: {fileID: 3097377860805588895, guid: a65cc755973d92c48b24c68115363e6d, type: 3}
+  - spawnPoint: {fileID: 7216852335656663831, guid: 1062966b39149c84f9891d1f42789be1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
