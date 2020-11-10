@@ -19,7 +19,7 @@ public class ProjectileScript : MonoBehaviour
   
     void Update()
     {
-        if(this.transform.position.x > 1000.0)
+        if(this.transform.position.x > 100.0 || this.transform.position.z > 100.0)
         {
             Destroy(gameObject);
             return;
@@ -84,6 +84,7 @@ public class ProjectileScript : MonoBehaviour
         {
             Damage(target);
         }
+
         Destroy(gameObject);
     }
 

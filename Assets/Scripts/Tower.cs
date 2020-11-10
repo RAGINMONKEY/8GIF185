@@ -10,11 +10,15 @@ public class Tower : MonoBehaviour
     Vector3 fireDirection;
     public int current;
 
-   [Header("Attributes")]
+    bool hasCollided = false;
+    string labelText = "";
+
+    [Header("Attributes")]
 
     public Transform partToRotate;
     public GameObject projectilePrefab;
     public Transform firePoint;
+    public GameObject camera;
 
     [Header("Turret Numbers")]
     public float range;
@@ -22,6 +26,8 @@ public class Tower : MonoBehaviour
     public float fireRate;
     public int cost;
     public float HauteurDeTir;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +41,7 @@ public class Tower : MonoBehaviour
         {
 
             ArrayList cont = player.getControl();
+
             if(cont[0] == ("clavier"))
             {
               Vector3 mouse = Input.mousePosition;
@@ -49,7 +56,8 @@ public class Tower : MonoBehaviour
                 Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
                 partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
                 }
-                print(cont[2].ToString());
+               // print(cont[2].ToString());
+
             if (Input.GetKeyDown(cont[2].ToString()))
             {
                 Shoot();
@@ -58,7 +66,7 @@ public class Tower : MonoBehaviour
 
         }
     }
-
+   
     public void setPlayer(SwitchCharacters player)
     {
         this.player = player;

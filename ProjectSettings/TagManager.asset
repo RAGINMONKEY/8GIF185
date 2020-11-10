@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - End
+  - Player1
+  - Player2
+  - FirePointCamera
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Tower
   - Ground
   - 
   - 
