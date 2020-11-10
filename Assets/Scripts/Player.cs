@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     private bool onTower;
     private Tower TowerOn;
+    private int number;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit, maxInteractionDistance))
         {
             if (hit.transform.GetComponent("Tower") != null)
@@ -60,6 +58,9 @@ public class Player : MonoBehaviour
 
     public void SwitchToPlayerView()
     {
+        TowerOn.setActive(false);
+        TowerOn.setCurrent(0);
+
         TowerOn.camera.SetActive(false);
         this.GetComponent<Camera>().enabled = true;
 
@@ -71,11 +72,11 @@ public class Player : MonoBehaviour
     public void SwitchToCanonView()
     {
         onTower = true;
+        TowerOn.setActive(true);
+        TowerOn.setCurrent(getNumber());
 
         TowerOn.camera.SetActive(true);
         this.GetComponent<Camera>().enabled = false;
-
-    
     }
    
     public ArrayList getControl()
@@ -96,4 +97,15 @@ public class Player : MonoBehaviour
     {
         return true;
     }
+
+    public void setNumber(int number)
+    {
+        this.number = number;
+    }
+
+    public int getNumber()
+    {
+        return number;
+    }
+
 }

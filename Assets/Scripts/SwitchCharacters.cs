@@ -10,6 +10,12 @@ public class SwitchCharacters : MonoBehaviour
     {
         currentCaracter = 1;
 
+        Character1.GetComponentInChildren<Player>().setNumber(1);
+        Character2.GetComponentInChildren<Player>().setNumber(2);
+
+        Character1.GetComponent<Player>().enabled = true;
+        Character2.GetComponent<Player>().enabled = false;
+
         Character1.GetComponent<PlayerMovementScript>().enabled = true;
         Character2.GetComponent<PlayerMovementScript>().enabled = false;
 
@@ -38,6 +44,9 @@ public class SwitchCharacters : MonoBehaviour
 
                 currentCaracter = 1;
 
+                Character1.GetComponent<Player>().enabled = true;
+                Character2.GetComponent<Player>().enabled = false;
+
                 Character1.GetComponent<PlayerMovementScript>().enabled = true;
                 Character2.GetComponent<PlayerMovementScript>().enabled = false;
 
@@ -56,6 +65,9 @@ public class SwitchCharacters : MonoBehaviour
             case 2:
 
                 currentCaracter = 2;
+
+                Character1.GetComponent<Player>().enabled = false;
+                Character2.GetComponent<Player>().enabled = true;
 
                 Character1.GetComponent<PlayerMovementScript>().enabled = false;
                 Character2.GetComponent<PlayerMovementScript>().enabled = true;

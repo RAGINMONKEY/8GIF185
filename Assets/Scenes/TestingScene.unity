@@ -3649,13 +3649,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409431913}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82e2229aeda434c4c9694a20f3016553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 299806424}
-  current: 0
   partToRotate: {fileID: 28230763}
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 1518300241}
@@ -4952,6 +4951,10 @@ PrefabInstance:
     - target: {fileID: 6587547089412158707, guid: 9d46352821d49f943865e619437b1f8f, type: 3}
       propertyPath: current
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587547089412158707, guid: 9d46352821d49f943865e619437b1f8f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d46352821d49f943865e619437b1f8f, type: 3}
@@ -12451,6 +12454,7 @@ GameObject:
   - component: {fileID: 1363768529}
   - component: {fileID: 1363768528}
   - component: {fileID: 1363768530}
+  - component: {fileID: 1363768531}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -12537,6 +12541,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 0}
+--- !u!114 &1363768531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363768526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4b1c27383bf74408cf5defdc2ce672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedH: 2
+  speedV: 2
 --- !u!4 &1384209644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4482437886289408, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
@@ -14322,10 +14340,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 299806424}
-  current: 0
   partToRotate: {fileID: 275545095}
-  projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 1843509050}
+  projectilePrefab: {fileID: 6431959423231414035, guid: 8bca430a6bf8dfa47bff793ef659e62f, type: 3}
+  firePoint: {fileID: 1363768527}
   camera: {fileID: 1363768526}
   range: 0
   turnSpeed: 0
@@ -19090,7 +19107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab2e5091d9680e4396fda99e11dd455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: {fileID: 0}
+  interactText: {fileID: 993808830}
   maxInteractionDistance: 1
   camera: {fileID: 0}
 --- !u!4 &2060732407 stripped
