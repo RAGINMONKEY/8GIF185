@@ -17,7 +17,7 @@ public class SimpleAgent : MonoBehaviour
     private void Update()
     {
         _agent.SetDestination(_moveTarget.position);
-        print(_moveTarget.position);
+       // print(_moveTarget.position);
         var diffx = _moveTarget.position.x - transform.position.x;
         var diffz = _moveTarget.position.z - transform.position.z;
         if (diffx < 2 && diffx > -2 && diffz < 2 && diffz > -2){

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -11,15 +12,21 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public Transform target;
 
-    public float timeBetweenWaves = 5f;
-    // private float countdown = 1f;
-    private int waveIndex = 1;
+    public Text waveText;
+    public Text countdownTimer;
+
+    public float timeBetweenWaves = 3f;
+
+    private float countdown = 5.0f;
+    private int waveIndex = 0;
     private void Update()
     {
+        waveText.text = "Wave " + waveIndex;
+        countdownTimer.text = countdown.ToString("0.0");
         if(Input.GetKeyUp(KeyCode.R))
         {
             StartCoroutine(SpawnRedWave());
-            //countdown = timeBetweenWaves;
+            countdown = timeBetweenWaves;
         } 
         
         if (Input.GetKeyUp(KeyCode.B))
@@ -32,7 +39,17 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnMagentaWave());
         }
 
-        //countdown -= Time.deltaTime;
+        countdown -= Time.deltaTime;
+
+        if(countdown <= 0)
+        {
+            countdown = timeBetweenWaves;
+            waveIndex++;
+
+            SpawnBlueEnemy();
+            SpawnRedEnemy();
+            SpawnMagentaEnemy();
+        }
     }
 
     IEnumerator SpawnRedWave()
