@@ -27,7 +27,6 @@ public class BlueEnemy : MonoBehaviour
             healthBar.SetHealth(currentHealth);
             GameObject bloodEffect = (GameObject)Instantiate(bloodParticles, collision.transform.position, collision.transform.rotation);
             Destroy(bloodEffect, 5f);
-            Destroy(bloodParticles.gameObject, 5f);
             AudioSource.PlayClipAtPoint(hurtSound, collision.transform.position);
 
             if (currentHealth <= 0)
