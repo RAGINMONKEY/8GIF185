@@ -9,6 +9,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform blueEnemyPrefab;
     public Transform magentaEnemyPrefab;
     public Transform spawnPoint;
+    public Transform target;
 
     public float timeBetweenWaves = 5f;
     // private float countdown = 1f;
@@ -46,7 +47,8 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnRedEnemy()
     {
-        Instantiate(redEnemyPrefab,spawnPoint.position, spawnPoint.rotation);
+        Transform enemy = Instantiate(redEnemyPrefab,spawnPoint.position, spawnPoint.rotation);
+        enemy.GetComponentInChildren<SimpleAgent>().setTarget(target);
     }
 
     IEnumerator SpawnBlueWave()
@@ -61,7 +63,8 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnBlueEnemy()
     {
-        Instantiate(blueEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Transform enemy = Instantiate(blueEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        enemy.GetComponentInChildren<SimpleAgent>().setTarget(target);
     }
 
     IEnumerator SpawnMagentaWave()
@@ -76,6 +79,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnMagentaEnemy()
     {
-        Instantiate(magentaEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Transform enemy = Instantiate(magentaEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        enemy.GetComponentInChildren<SimpleAgent>().setTarget(target);
     }
 }
