@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 2978017398947348630}
   - component: {fileID: 2954575747850051881}
   - component: {fileID: 2954575747850052053}
+  - component: {fileID: 1169553917458182688}
   m_Layer: 13
   m_Name: ForestTower_Red 1
   m_TagString: Untagged
@@ -971,6 +972,22 @@ MonoBehaviour:
   fireRate: 0
   cost: 0
   HauteurDeTir: 0
+--- !u!208 &1169553917458182688
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955841394739802646}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 2.5790002, z: 2}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.022000002, y: 2.6030002, z: -0.14600001}
+  m_TimeToStationary: 0.5
 --- !u!1 &2955845333633711228
 GameObject:
   m_ObjectHideFlags: 0
