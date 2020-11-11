@@ -9,6 +9,8 @@ TagManager:
   - Player1
   - Player2
   - FirePointCamera
+  - Blue
+  - Red
   layers:
   - Default
   - TransparentFX
@@ -18,8 +20,16 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - Player1
+  - Player2
+  - Player3
+  - 
+  - 
   - Tower
+  - 
+  - 
+  - 
+  - 
   - Ground
   - 
   - 
@@ -33,15 +43,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EndCube
   m_SortingLayers:
   - name: Default
     uniqueID: 0

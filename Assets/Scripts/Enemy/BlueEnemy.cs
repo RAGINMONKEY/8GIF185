@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class BlueEnemy : MonoBehaviour
 {
-    public Enemy enemy;
+    public int maxHealth;
+    public HealthBar healthBar;
 
-    // Start is called before the first frame update
+    private int currentHealth;
+
+
     void Start()
     {
-        enemy = new Enemy("Blue");
-        var render = GetComponent<Renderer>();
-        render.material.SetColor("_Color", Color.blue);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    void onCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (enemy.isHit(collision.gameObject.tag))
+       
+        if (isHit(collision.gameObject.tag))
         {
-            Destroy(this);
+            currentHealth--;
+            healthBar.SetHealth(currentHealth);
+
+            if (currentHealth <= 0)
+                Destroy(this.gameObject);
         }
+    }
+
+    // Use by the enemy when he take a damage
+    public bool isHit(string projectileTag)
+    {
+        if (projectileTag == "Blue")
+            return true;
+        else return false;
     }
 }

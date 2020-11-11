@@ -5,73 +5,41 @@ using UnityEngine.Audio;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public float speed = 50f;
+    public float speed = 1f;
     public GameObject impactEffect;
     public float explosionRadius = 0f;
     public float range;
+
     private Transform target;
-    private string enemyTag = "Enemy";
+    private Vector3 shootDirection;
 
     public AudioClip bigBong;
 
-    private Vector3 direct;
-    private float timer = 0.0f;
 
+    //private float timer = 0.0f;
 
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
-        if(this.transform.position.x > 100.0 || this.transform.position.z > 100.0)
+        
+        if(this.transform.position.x > 100.0 || this.transform.position.z > 100.0 || this.transform.position.y > 100)
         {
             Destroy(gameObject);
             return;
         }
 
 
-        Vector3 direction = direct;
-        float distanceThisFrame = speed * Time.deltaTime;
-
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDisance = range;
-        GameObject nearestEnemy = null;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distanceToEnemy < shortestDisance)
-            {
-                shortestDisance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-
-        if (nearestEnemy != null && shortestDisance <= range)
-        {
-            target = nearestEnemy.transform;
-        }
-        else
-        {
-            target = null;
-        }
-
-        if (target != null)
-        {
-            //print(target.transform.position);
-            //print(this.transform.position);
-            //print("");
-            if (target.transform.position.magnitude <= distanceThisFrame)
-            {
-                //HitTarget();
-                //return;
-            }
-        }
-        Vector3 trans = direction.normalized * distanceThisFrame;
-        transform.Translate(trans, Space.World);
-        transform.LookAt(direct);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        HitTarget(); 
+    }
     void HitTarget()
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
@@ -108,7 +76,7 @@ public class ProjectileScript : MonoBehaviour
     }
     public void Seek(Vector3 _target)
     {
-        direct = _target;
+       // direct = _target;
     }
 
 }

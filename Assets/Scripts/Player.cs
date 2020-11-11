@@ -7,6 +7,7 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public TMP_Text interactText;
+    public TMP_Text towerText;
     public float maxInteractionDistance = 1f;
 
     public GameObject camera;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         camera = GameObject.FindGameObjectWithTag("MainCamera");
+        towerText.GetComponent<TMP_Text>().enabled = false;
         onTower = false;
     }
 
@@ -28,25 +30,30 @@ public class Player : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxInteractionDistance))
-        {
-            if (hit.transform.GetComponent("Tower") != null)
+        
+            if (Physics.Raycast(ray, out hit, maxInteractionDistance))
             {
-                interactText.GetComponent<TMP_Text>().enabled = true;
-
-                if (Input.GetButtonDown("Interact"))
+                if (hit.transform.GetComponent("Tower") != null)
                 {
-                    TowerOn = hit.transform.GetComponent<Tower>();
-                    SwitchToCanonView();
+                    interactText.GetComponent<TMP_Text>().enabled = true;
+
+                    if (Input.GetButtonDown("Interact"))
+                    {
+                        TowerOn = hit.transform.GetComponent<Tower>();
+                        SwitchToCanonView();
+                    }
+
                 }
 
             }
-
-        }
-        else interactText.GetComponent<TMP_Text>().enabled = false;
+            else interactText.GetComponent<TMP_Text>().enabled = false;
+        
+        
 
         if (onTower == true)
         {
+            interactText.GetComponent<TMP_Text>().enabled = false;
+
             if (Input.GetButtonDown("Cancel"))
             {
                 SwitchToPlayerView();
@@ -70,6 +77,11 @@ public class Player : MonoBehaviour
         onTower = false;
         TowerOn = null;
 
+        this.GetComponent<PlayerMovementScript>().enabled = true;
+        this.GetComponentInChildren<PlayerAnimatorScript>().enabled = true;
+        this.GetComponent<Footstep>().enabled = true;
+
+        towerText.GetComponent<TMP_Text>().enabled = false;
     }
 
     public void SwitchToCanonView()
@@ -83,6 +95,12 @@ public class Player : MonoBehaviour
         {
             this.GetComponent<Camera>().enabled = false;
         }
+
+        this.GetComponent<PlayerMovementScript>().enabled = false;
+        this.GetComponentInChildren<PlayerAnimatorScript>().enabled = false;
+        this.GetComponent<Footstep>().enabled = false;
+
+        towerText.GetComponent<TMP_Text>().enabled = true;
     }
 
     public ArrayList getControl()

@@ -4,21 +4,62 @@ using UnityEngine;
 
 public class MagentaEnemy : MonoBehaviour
 {
-    public Enemy enemy;
+    public int maxHealth;
+    public HealthBar healthBar;
+    public float timeToTag;
+    public List<string> tagList;
 
-    // Start is called before the first frame update
+    private int currentHealth;
+    private float timer;
+    
+
+
     void Start()
     {
-        enemy = new Enemy("red blue");
-        var render = GetComponent<Renderer>();
-        render.material.SetColor("_Color", Color.magenta);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        tagList.Clear();
+        timer = 0f;
     }
 
-    void onCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (enemy.isHit(collision.gameObject.tag))
-        {
-            Destroy(this);
+        if(tagList.Count > 0)
+        { 
+            timer += Time.deltaTime;
+
+            if(timer > timeToTag)
+            {
+                timer = 0f;
+                tagList.Clear();
+            }
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (isHit(collision.gameObject.tag))
+        {
+            tagList.Add(collision.gameObject.tag);
+
+            if (tagList.Contains("Red") && tagList.Contains("Blue"))
+            {
+                currentHealth--;
+                healthBar.SetHealth(currentHealth);
+
+                if (currentHealth <= 0)
+                    Destroy(this.gameObject);
+            }
+        }
+    }
+
+    // Use by the enemy when he take a damage
+    public bool isHit(string projectileTag)
+    {
+        if (projectileTag == "Blue" || projectileTag == "Red")   
+        return true;
+        else return false;
+    }
+
+   
 }

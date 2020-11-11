@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class TowerCamera : MonoBehaviour
 {
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    public float speedH = 1f;
+    public float speedV = 1;
 
     protected float fDistance = 1;
     protected float fSpeed = 1;
@@ -22,27 +22,36 @@ public class TowerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+        
+                yaw += speedH * Input.GetAxis("Mouse X");
+                pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+                transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
 
-        float step = fSpeed * Time.deltaTime;
-        float fOrbitCircumfrance = 2F * fDistance * Mathf.PI;
-        float fDistanceDegrees = (fSpeed / fOrbitCircumfrance) * 360;
-        float fDistanceRadians = (fSpeed / fOrbitCircumfrance) * 2 * Mathf.PI;
-        float x = Input.GetAxis("Horizontal");
-        if (x < 0)
-        {
-            transform.RotateAround(this.transform.parent.transform.position, Vector3.up, -fDistanceRadians);
-            yaw -= fDistanceRadians;
-            transform.parent.GetComponent<Tower>().rotatePart(-fDistanceRadians);
-        }
-        if (x > 0)
-        {
-            transform.RotateAround(this.transform.parent.transform.position, Vector3.up, fDistanceRadians);
-            yaw += fDistanceRadians;
-            transform.parent.GetComponent<Tower>().rotatePart(fDistanceRadians);
-        }
+                float step = fSpeed * Time.deltaTime;
+                float fOrbitCircumfrance = 2F * fDistance * Mathf.PI;
+                float fDistanceDegrees = (fSpeed / fOrbitCircumfrance) * 360;
+                float fDistanceRadians = (fSpeed / fOrbitCircumfrance) * 2 * Mathf.PI;
+
+
+
+                float x = Input.GetAxis("Horizontal");
+
+                if (x < 0)
+                {
+                    transform.RotateAround(this.transform.parent.transform.position, Vector3.up, -fDistanceRadians);
+                    yaw -= fDistanceRadians;
+                    transform.parent.GetComponent<Tower>().rotatePart(-fDistanceRadians);
+                }
+
+
+                if (x > 0)
+                {
+                    transform.RotateAround(this.transform.parent.transform.position, Vector3.up, fDistanceRadians);
+                    yaw += fDistanceRadians;
+                    transform.parent.GetComponent<Tower>().rotatePart(fDistanceRadians);
+                }
+         
+        
     }
 }

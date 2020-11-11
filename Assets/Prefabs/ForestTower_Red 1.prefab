@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2954575747817790053}
   - component: {fileID: 2954575747817790075}
-  - component: {fileID: 2954575747817790074}
   - component: {fileID: 2954575747817790072}
   - component: {fileID: 2954575747817790073}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,14 +76,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2954575747817790074
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2954575747817790052}
-  m_Enabled: 1
 --- !u!114 &2954575747817790072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2954575748142274960}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: FirePoint
   m_TagString: FirePointCamera
   m_Icon: {fileID: 0}
@@ -137,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2954575748142274963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.978, z: -0}
+  m_LocalPosition: {x: 0, y: -1.257, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2954575748906406573}
@@ -155,7 +146,7 @@ GameObject:
   - component: {fileID: 2954575748906406560}
   - component: {fileID: 2954575748906406563}
   - component: {fileID: 2954575748906406562}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +226,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 2954575748906406572}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -249,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959364561291697564}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +273,7 @@ GameObject:
   - component: {fileID: 2958830293701691082}
   - component: {fileID: 2988329071068077216}
   - component: {fileID: 2977628953333200488}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestCastleWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958458782082852602}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestBanner.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2958613315364313948}
   - component: {fileID: 2947922373726818424}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958811988434141218}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958737930046931570}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959358074180941994}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958303746044159474}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestBanner.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958620314943826844}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958650453539891176}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2958649126350389324}
   - component: {fileID: 2905750208267377002}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestBanner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +711,7 @@ GameObject:
   - component: {fileID: 2959094578957148474}
   - component: {fileID: 2987887728667589814}
   - component: {fileID: 2977505705689115956}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestCastleWindow (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959269057417064242}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958926089483085918}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +854,7 @@ GameObject:
   - component: {fileID: 2978017398947348630}
   - component: {fileID: 2954575747850051881}
   - component: {fileID: 2954575747850052053}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestTower_Red 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,9 +961,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: {fileID: 0}
   partToRotate: {fileID: 2954575748906406573}
-  projectilePrefab: {fileID: 6431959423231414035, guid: 8bca430a6bf8dfa47bff793ef659e62f, type: 3}
+  redProjectilePrefab: {fileID: 6431959423231414035, guid: 8bca430a6bf8dfa47bff793ef659e62f, type: 3}
+  blueProjectilePrefab: {fileID: 6431959423231414035, guid: 8644555c03d45684eaca17ac20a3c2f9, type: 3}
   firePoint: {fileID: 2954575747817790053}
   camera: {fileID: 2954575747817790052}
+  ShootingAudioClip: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   range: 0
   turnSpeed: 0
   fireRate: 0
@@ -987,7 +980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958682345509198700}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.003_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2958598602569294548}
   - component: {fileID: 2947441536807583038}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestBanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1100,7 @@ GameObject:
   - component: {fileID: 2958446836904738698}
   - component: {fileID: 2987673394297034670}
   - component: {fileID: 2978500511090079212}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestCastleWindow (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958453496215533528}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,7 +1210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959283872625680626}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958798131114397016}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1280,7 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2958659818577447102}
   - component: {fileID: 2905642981389806060}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958343844991291538}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2958437907704300958}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.003_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959102940897645892}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: FlagArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1424,7 +1417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2959260338139666462}
   - component: {fileID: 2906173377676336404}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestBanner (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2958650854151868472}
   - component: {fileID: 2947547627944402220}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestBanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1562,7 +1555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959254270764865106}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1588,7 @@ GameObject:
   - component: {fileID: 2958658628088979232}
   - component: {fileID: 2988293893560182054}
   - component: {fileID: 2978141487965092794}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ForestCastleWindow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2959228074084336596}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

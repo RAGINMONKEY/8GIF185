@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Tower : MonoBehaviour
 {
@@ -18,9 +19,11 @@ public class Tower : MonoBehaviour
     [Header("Attributes")]
 
     public Transform partToRotate;
-    public GameObject projectilePrefab;
+    public GameObject redProjectilePrefab;
+    public GameObject blueProjectilePrefab;
     public Transform firePoint;
     public GameObject camera;
+    public AudioClip ShootingAudioClip;
 
     [Header("Turret Numbers")]
     public float range;
@@ -71,7 +74,7 @@ public class Tower : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
-                print("dddddddddd");
+                //print("dddddddddd");
             }
             
 
@@ -85,18 +88,26 @@ public class Tower : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(projectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
-        ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
+        AudioSource.PlayClipAtPoint(ShootingAudioClip, transform.position);
+        
+        
         if(current == 1)
         {
+           // GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), Quaternion.identity);
+            GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
+            ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
             projectile.tag = "Blue";
-        }else if(current == 2)
+           
+
+        }
+        else if(current == 2)
         {
+            GameObject bulletGO = (GameObject)Instantiate(redProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
+            ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
             projectile.tag = "Red";
+          
         }
 
-        if (projectile != null)
-            projectile.Seek(fireDirection);
     }
 
     public void setActive(bool active)
