@@ -163,6 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   healthBar: {fileID: 42648406618184977}
+  bloodParticles: {fileID: 5460242056131584170, guid: 0d0b6506b21a17b4492fd98b22a178ef, type: 3}
+  hurtSound: {fileID: 8300000, guid: 085e5ddc86b5e034ea5744cbb8ec5b53, type: 3}
 --- !u!54 &-8826147434315457929
 Rigidbody:
   m_ObjectHideFlags: 0

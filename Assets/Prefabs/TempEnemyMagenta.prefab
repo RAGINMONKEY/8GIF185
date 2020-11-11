@@ -164,6 +164,8 @@ MonoBehaviour:
   healthBar: {fileID: 1203265237723142253}
   timeToTag: 3
   tagList: []
+  bloodParticles: {fileID: 5460242056131584170, guid: 0d0b6506b21a17b4492fd98b22a178ef, type: 3}
+  hurtSound: {fileID: 8300000, guid: 085e5ddc86b5e034ea5744cbb8ec5b53, type: 3}
 --- !u!1001 &5794920054243555335
 PrefabInstance:
   m_ObjectHideFlags: 0

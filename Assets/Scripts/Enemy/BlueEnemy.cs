@@ -6,6 +6,8 @@ public class BlueEnemy : MonoBehaviour
 {
     public int maxHealth;
     public HealthBar healthBar;
+    public GameObject bloodParticles;
+    public AudioClip hurtSound;
 
     private int currentHealth;
 
@@ -23,6 +25,10 @@ public class BlueEnemy : MonoBehaviour
         {
             currentHealth--;
             healthBar.SetHealth(currentHealth);
+            GameObject bloodEffect = (GameObject)Instantiate(bloodParticles, collision.transform.position, collision.transform.rotation);
+            Destroy(bloodEffect, 5f);
+            Destroy(bloodParticles.gameObject, 5f);
+            AudioSource.PlayClipAtPoint(hurtSound, collision.transform.position);
 
             if (currentHealth <= 0)
                 Destroy(this.gameObject);

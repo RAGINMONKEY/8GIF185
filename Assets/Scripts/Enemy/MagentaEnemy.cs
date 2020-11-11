@@ -8,6 +8,9 @@ public class MagentaEnemy : MonoBehaviour
     public HealthBar healthBar;
     public float timeToTag;
     public List<string> tagList;
+    public GameObject bloodParticles;
+    public AudioClip hurtSound;
+    
 
     private int currentHealth;
     private float timer;
@@ -46,6 +49,9 @@ public class MagentaEnemy : MonoBehaviour
             {
                 currentHealth--;
                 healthBar.SetHealth(currentHealth);
+                GameObject bloodEffect = (GameObject)Instantiate(bloodParticles, collision.transform.position, collision.transform.rotation);
+                Destroy(bloodEffect, 5f);
+                AudioSource.PlayClipAtPoint(hurtSound, collision.transform.position);
 
                 if (currentHealth <= 0)
                     Destroy(this.gameObject);

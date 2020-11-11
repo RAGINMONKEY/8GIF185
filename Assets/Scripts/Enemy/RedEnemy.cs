@@ -6,7 +6,8 @@ public class RedEnemy : MonoBehaviour
 {
     public int maxHealth;
     public HealthBar healthBar;
-
+    public GameObject bloodParticles;
+    public AudioClip hurtSound;
     private int currentHealth;
 
 
@@ -22,7 +23,10 @@ public class RedEnemy : MonoBehaviour
         if (isHit(collision.gameObject.tag))
         {
             currentHealth--;
+            GameObject bloodEffect = (GameObject)Instantiate(bloodParticles, collision.transform.position, collision.transform.rotation);
+            Destroy(bloodEffect, 5f);
             healthBar.SetHealth(currentHealth);
+            AudioSource.PlayClipAtPoint(hurtSound, collision.transform.position);
 
             if (currentHealth <= 0)
                 Destroy(this.gameObject);
