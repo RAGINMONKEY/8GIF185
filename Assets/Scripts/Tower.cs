@@ -10,7 +10,8 @@ public class Tower : MonoBehaviour
     SwitchCharacters player;
     public GameObject players;
     Vector3 fireDirection;
-    private int current;
+    private bool player1;
+    private bool player2;
     bool active;
 
     bool hasCollided = false;
@@ -18,11 +19,14 @@ public class Tower : MonoBehaviour
 
     [Header("Attributes")]
 
-    public Transform partToRotate;
+    public Transform partToRotate1;
+    public Transform partToRotate2;
     public GameObject redProjectilePrefab;
     public GameObject blueProjectilePrefab;
-    public Transform firePoint;
-    public GameObject camera;
+    public Transform firePoint1;
+    public Transform firePoint2;
+    public GameObject camera1;
+    public GameObject camera2;
     public AudioClip ShootingAudioClip;
 
     [Header("Turret Numbers")]
@@ -43,8 +47,20 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject camera;
+        if(player.getCurrCar() == 1)
+        {
+            camera = camera1;
+        }else if(player.getCurrCar() == 2)
+        {
+            camera = camera2;
+        }
+        else
+        {
+            camera = null;
+        }
 
-        if ((current == player.getCurrCar()) && active)
+        if (((player.getCurrCar() == 1 && player1) || (player.getCurrCar() == 2 && player2)))
         {
 
 
@@ -62,7 +78,7 @@ public class Tower : MonoBehaviour
                 Vector3 force = new Vector3(xForce, 0.0F, zForce);
                 Vector3 movement = new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
                 movement = Vector3.Scale(movement, force);
-                movement = this.camera.transform.forward;
+                movement = camera.transform.forward;
                 fireDirection = movement;
 
                /* Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -91,18 +107,18 @@ public class Tower : MonoBehaviour
         AudioSource.PlayClipAtPoint(ShootingAudioClip, transform.position);
         
         
-        if(current == 1)
+        if(player.getCurrCar() == 1)
         {
            // GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), Quaternion.identity);
-            GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
+            GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint1.position.x, firePoint1.position.y, firePoint1.position.z), firePoint1.rotation);
             ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
             projectile.tag = "Blue";
            
 
         }
-        else if(current == 2)
+        else if(player.getCurrCar() == 2)
         {
-            GameObject bulletGO = (GameObject)Instantiate(redProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), firePoint.rotation);
+            GameObject bulletGO = (GameObject)Instantiate(redProjectilePrefab, new Vector3(firePoint2.position.x, firePoint2.position.y, firePoint2.position.z), firePoint2.rotation);
             ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
             projectile.tag = "Red";
           
@@ -110,18 +126,45 @@ public class Tower : MonoBehaviour
 
     }
 
-    public void setActive(bool active)
+    public void setActive(int active)
     {
-        this.active = active;
+        this.active = true;
     }
 
     public void setCurrent (int curr)
     {
-        this.current = curr;
+        if (curr == 1)
+        {
+            player1 = true;
+        }else if(curr == 2)
+        {
+            player2 = true;
+        }
+        else if (curr == -1)
+        {
+            player1 = false;
+        }
+        else if (curr == -2)
+        {
+            player2 = false;
+        }
     }
 
     public void rotatePart(float radian)
     {
+        Transform partToRotate;
+        if (player.getCurrCar() == 1)
+        {
+            partToRotate = partToRotate1;
+        }
+        else if (player.getCurrCar() == 2)
+        {
+            partToRotate = partToRotate2;
+        }
+        else
+        {
+            partToRotate = null;
+        }
         partToRotate.RotateAround(this.transform.position, Vector3.up, radian);
     }
 }

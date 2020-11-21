@@ -65,10 +65,11 @@ public class Player : MonoBehaviour
 
     public void SwitchToPlayerView()
     {
-        TowerOn.setActive(false);
-        TowerOn.setCurrent(0);
+        TowerOn.setActive(getNumber() * -1);
+        TowerOn.setCurrent(getNumber() * -1);
 
-        TowerOn.camera.SetActive(false);
+        string cam = "Camera" + getNumber().ToString();
+        TowerOn.transform.Find(cam).gameObject.SetActive(false);
         if (this.GetComponent<Camera>() != null)
         {
             this.GetComponent<Camera>().enabled = true;
@@ -87,10 +88,11 @@ public class Player : MonoBehaviour
     public void SwitchToCanonView()
     {
         onTower = true;
-        TowerOn.setActive(true);
+        TowerOn.setActive(getNumber());
         TowerOn.setCurrent(getNumber());
 
-        TowerOn.camera.SetActive(true);
+        string cam = "Camera" + getNumber().ToString();
+        TowerOn.transform.Find(cam).gameObject.SetActive(true);
         if (this.GetComponent<Camera>() != null)
         {
             this.GetComponent<Camera>().enabled = false;
@@ -136,13 +138,14 @@ public class Player : MonoBehaviour
 
         if (onTower)
         {
+            string cam = "Camera" + getNumber().ToString();
             if (this.GetComponentInParent<SwitchCharacters>().getCurrCar() != number)
             {
-                TowerOn.camera.SetActive(false);
+                TowerOn.transform.Find(cam).gameObject.SetActive(false);
             }
             else if (this.GetComponentInParent<SwitchCharacters>().getCurrCar() == number)
             {
-                TowerOn.camera.SetActive(true);
+                TowerOn.transform.Find(cam).gameObject.SetActive(true);
             }
         }
     }
