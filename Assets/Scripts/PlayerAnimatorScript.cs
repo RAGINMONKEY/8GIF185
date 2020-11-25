@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class PlayerAnimatorScript : MonoBehaviour
+public class PlayerAnimatorScript : NetworkBehaviour
 {
 
     private Animator anim;
@@ -13,19 +14,18 @@ public class PlayerAnimatorScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    [ClientCallback]
+    private void Update()   
     {
+        if (!hasAuthority) { return; }
+
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isWalking", true);
         }
         else{anim.SetBool("isWalking", false); }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetBool("isJumping", true);
-        }
-        else { anim.SetBool("isJumping", false); }
+        anim.SetBool("isJumping", false);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
