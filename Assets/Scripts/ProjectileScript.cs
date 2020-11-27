@@ -12,6 +12,8 @@ public class ProjectileScript : MonoBehaviour
 
     private Transform target;
     private Vector3 shootDirection;
+    private Tower tour;
+    private bool touched;
 
     public AudioClip bigBong;
 
@@ -20,7 +22,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void Start()
     {
-        
+        touched = false;
     }
 
     void Update()
@@ -28,6 +30,7 @@ public class ProjectileScript : MonoBehaviour
         
         if(this.transform.position.x > 100.0 || this.transform.position.z > 100.0 || this.transform.position.y > 100)
         {
+            tour.loseAmmo();
             Destroy(gameObject);
             return;
         }
@@ -38,13 +41,12 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        HitTarget(); 
+        HitTarget(collision); 
     }
-    void HitTarget()
+    void HitTarget(Collision collision)
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
-
         if(explosionRadius > 0f)
         {
             Explode();
@@ -53,7 +55,10 @@ public class ProjectileScript : MonoBehaviour
         {
             Damage(target);
         }
-
+        if (collision.gameObject.tag != "Enemy")
+        {
+            tour.loseAmmo();
+        }
         Destroy(gameObject);
     }
 
@@ -71,12 +76,23 @@ public class ProjectileScript : MonoBehaviour
             if(collider.tag == "Enemy")
             {
                 Damage(collider.transform);
+                touched = true;
             }
         }
     }
     public void Seek(Vector3 _target)
     {
        // direct = _target;
+    }
+
+    public void setTour(Tower tour)
+    {
+        this.tour = tour;
+    }
+
+    public Tower getTour()
+    {
+        return tour;
     }
 
 }

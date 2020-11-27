@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
 
     private bool onTower;
+    private bool haveAmmo;
     private Tower TowerOn;
     private int number;
 
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
         camera = GameObject.FindGameObjectWithTag("MainCamera");
         towerText.GetComponent<TMP_Text>().enabled = false;
         onTower = false;
+        haveAmmo = false;
     }
 
     // Update is called once per frame
@@ -33,7 +35,18 @@ public class Player : MonoBehaviour
         
             if (Physics.Raycast(ray, out hit, maxInteractionDistance))
             {
-                if (hit.transform.GetComponent("Tower") != null)
+               if (hit.transform.GetComponent("Tower") != null && haveAmmo)
+              {
+                interactText.GetComponent<TMP_Text>().enabled = true;
+
+                if (Input.GetButtonDown("Interact"))
+                {
+                    hit.transform.GetComponent<Tower>().fillAmmo();
+                    print("tour rechargé");
+                    haveAmmo = false;
+                }
+            }
+                else if (hit.transform.GetComponent("Tower") != null)
                 {
                     interactText.GetComponent<TMP_Text>().enabled = true;
 
@@ -43,7 +56,14 @@ public class Player : MonoBehaviour
                         SwitchToCanonView();
                     }
 
+                }else if (hit.transform.tag == "Finish" != null)
+            {
+                interactText.GetComponent<TMP_Text>().enabled = true;
+                if (Input.GetButtonDown("Interact"))
+                {
+                    haveAmmo = true;
                 }
+            } 
 
             }
             else interactText.GetComponent<TMP_Text>().enabled = false;

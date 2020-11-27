@@ -31,6 +31,10 @@ public class RedEnemy : MonoBehaviour
             if (currentHealth <= 0)
                 Destroy(this.gameObject);
         }
+        else if(collision.gameObject.tag == "Blue")
+        {
+            collision.gameObject.GetComponent<ProjectileScript>().getTour().loseAmmo();
+        }
     }
 
     // Use by the enemy when he take a damage

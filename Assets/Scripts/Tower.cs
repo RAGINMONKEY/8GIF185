@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.Audio;
+using TMPro;
 
 public class Tower : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Tower : MonoBehaviour
     private bool player1;
     private bool player2;
     bool active;
+    private int ammo;
+    public TMP_Text ammoTxt;
+    public TMP_Text warningTxt;
 
     bool hasCollided = false;
     string labelText = "";
@@ -42,12 +46,14 @@ public class Tower : MonoBehaviour
     {
         player = players.GetComponent<SwitchCharacters>();
         active = false;
+        ammo = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject camera;
+        print(ammo);
         if(player.getCurrCar() == 1)
         {
             camera = camera1;
@@ -60,11 +66,27 @@ public class Tower : MonoBehaviour
             camera = null;
         }
 
+        if (ammo > 0)
+        {
+            ammoTxt.GetComponent<TMP_Text>().text = ammo.ToString();
+        }
+        else
+        {
+            ammoTxt.GetComponent<TMP_Text>().text = "0";
+        }
         if (((player.getCurrCar() == 1 && player1) || (player.getCurrCar() == 2 && player2)))
         {
 
+              ammoTxt.GetComponent<TMP_Text>().enabled = true;
+              if (ammo < 1)
+            {
+                warningTxt.GetComponent<TMP_Text>().enabled = true;
+            }
+            else
+            {
+                warningTxt.GetComponent<TMP_Text>().enabled = false;
+            }
 
-           
               Vector3 mouse = Input.mousePosition;
               Ray castPoint = Camera.main.ScreenPointToRay(mouse);
               RaycastHit hit;
@@ -87,13 +109,18 @@ public class Tower : MonoBehaviour
                 }
                // print(cont[2].ToString());
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && (ammo > 0))
             {
                 Shoot();
                 //print("dddddddddd");
             }
-            
 
+
+        }
+        else
+        {
+            ammoTxt.GetComponent<TMP_Text>().enabled = false;
+            warningTxt.GetComponent<TMP_Text>().enabled = false;
         }
     }
    
@@ -113,6 +140,7 @@ public class Tower : MonoBehaviour
             GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint1.position.x, firePoint1.position.y, firePoint1.position.z), firePoint1.rotation);
             ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
             projectile.tag = "Blue";
+            projectile.setTour(this);
            
 
         }
@@ -121,7 +149,8 @@ public class Tower : MonoBehaviour
             GameObject bulletGO = (GameObject)Instantiate(redProjectilePrefab, new Vector3(firePoint2.position.x, firePoint2.position.y, firePoint2.position.z), firePoint2.rotation);
             ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
             projectile.tag = "Red";
-          
+            projectile.setTour(this);
+
         }
 
     }
@@ -166,5 +195,15 @@ public class Tower : MonoBehaviour
             partToRotate = null;
         }
         partToRotate.RotateAround(this.transform.position, Vector3.up, radian);
+    }
+
+    public void fillAmmo()
+    {
+        ammo = 10;
+    }
+
+    public void loseAmmo()
+    {
+        ammo -= 1;
     }
 }
