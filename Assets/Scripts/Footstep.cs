@@ -17,14 +17,7 @@ public class Footstep : MonoBehaviour
     void Update()
     {
 
-        if (cc.isGrounded == true && cc.velocity.magnitude > 0.1f && GetComponent<AudioSource>().isPlaying == false)
-        {
-            GetComponent<AudioSource>().volume = Random.Range(0.5f, 1f);
-            GetComponent<AudioSource>().pitch = Random.Range(0.8f, 1.1f);
-            GetComponent<AudioSource>().Play();
-
-        }
-
+     
         if (cc.isGrounded == true && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")) && GetComponent<AudioSource>().isPlaying == false)
         {
             if (Input.GetKey(KeyCode.LeftShift))
