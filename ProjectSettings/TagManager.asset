@@ -9,8 +9,8 @@ TagManager:
   - Player1
   - Player2
   - FirePointCamera
-  - Blue
-  - Red
+  - RedPlayer
+  - BluePlayer
   layers:
   - Default
   - TransparentFX
