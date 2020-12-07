@@ -77,8 +77,8 @@ public class Tower : MonoBehaviour
         if (((player.getCurrCar() == 1 && player1) || (player.getCurrCar() == 2 && player2)))
         {
 
-              ammoTxt.GetComponent<TMP_Text>().enabled = true;
-              if (ammo < 1)
+            ammoTxt.GetComponent<TMP_Text>().enabled = true;
+            if (ammo < 1)
             {
                 warningTxt.GetComponent<TMP_Text>().enabled = true;
             }
