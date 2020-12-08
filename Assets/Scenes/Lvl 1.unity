@@ -10320,7 +10320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 601891914}
   towerText: {fileID: 992951330}
-  fullAmmoText: {fileID: 0}
+  fullAmmoText: {fileID: 1958203301}
   maxInteractionDistance: 1
   camera: {fileID: 0}
   onTower: 0
@@ -35626,7 +35626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 601891914}
   towerText: {fileID: 992951330}
-  fullAmmoText: {fileID: 0}
+  fullAmmoText: {fileID: 1958203301}
   maxInteractionDistance: 1
   camera: {fileID: 0}
   onTower: 0
