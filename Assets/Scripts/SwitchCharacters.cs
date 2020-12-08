@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class SwitchCharacters : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SwitchCharacters : MonoBehaviour
     int currentCaracter;
     void Start()
     {
+        
         currentCaracter = 1;
 
         Character1.GetComponentInChildren<Player>().setNumber(1);

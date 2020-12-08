@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public GameObject camera;
 
 
-    private bool onTower;
+    public bool onTower;
     private bool haveAmmo;
     private Tower TowerOn;
     private int number;
@@ -35,19 +35,19 @@ public class Player : MonoBehaviour
         
             if (Physics.Raycast(ray, out hit, maxInteractionDistance))
             {
-               if (hit.transform.GetComponent("Tower") != null && haveAmmo)
+               if ((hit.transform.GetComponent("Tower") != null || hit.transform.GetComponent("OnlineTower") != null) && haveAmmo)
               {
                 interactText.GetComponent<TMP_Text>().enabled = true;
 
-                if (Input.GetButtonDown("Interact"))
-                {
+                    if (Input.GetButtonDown("Interact"))
+                    {
                     hit.transform.GetComponent<Tower>().fillAmmo();
                     print("tour rechargé");
                     haveAmmo = false;
+                     }
                 }
-            }
-                else if (hit.transform.GetComponent("Tower") != null)
-                {
+                else if (hit.transform.GetComponent("Tower") != null || hit.transform.GetComponent("OnlineTower") != null)
+            {
                     interactText.GetComponent<TMP_Text>().enabled = true;
 
                     if (Input.GetButtonDown("Interact"))
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
                         SwitchToCanonView();
                     }
 
-                }else if (hit.transform.tag == "Finish" != null)
+                }else if (hit.transform.tag == "Finish")
             {
                 interactText.GetComponent<TMP_Text>().enabled = true;
                 if (Input.GetButtonDown("Interact"))

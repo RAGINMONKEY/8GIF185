@@ -28,9 +28,8 @@ public class ProjectileScript : MonoBehaviour
     void Update()
     {
         
-        if(this.transform.position.x > 100.0 || this.transform.position.z > 100.0 || this.transform.position.y > 100)
+        if(this.transform.position.x > 300.0 || this.transform.position.z > 300.0 || this.transform.position.y > 300 || this.transform.position.x < -300.0 || this.transform.position.z < -300.0 || this.transform.position.y < -300)
         {
-            tour.loseAmmo();
             Destroy(gameObject);
             return;
         }
@@ -57,7 +56,7 @@ public class ProjectileScript : MonoBehaviour
         }
         if (collision.gameObject.tag != "Enemy")
         {
-            tour.loseAmmo();
+           
         }
         Destroy(gameObject);
     }
@@ -85,10 +84,10 @@ public class ProjectileScript : MonoBehaviour
        // direct = _target;
     }
 
-    public void setTour(Tower tour)
+   /* public void setTour(Tower tour)
     {
         this.tour = tour;
-    }
+    }*/
 
     public Tower getTour()
     {
