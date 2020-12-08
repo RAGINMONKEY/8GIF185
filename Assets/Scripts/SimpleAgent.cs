@@ -21,7 +21,9 @@ public class SimpleAgent : MonoBehaviour
         var diffx = _moveTarget.position.x - transform.position.x;
         var diffz = _moveTarget.position.z - transform.position.z;
         if (diffx < 4 && diffx > -4 && diffz < 4 && diffz > -4){
-            //Destroy(gameObject);
+            Destroy(gameObject);
+            GameObject temp = GameObject.Find("END");
+            temp.GetComponent<CoreScript>().LoseHealth();
         }
     }
 

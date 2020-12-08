@@ -1617,21 +1617,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5753898609013434212, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
   m_PrefabInstance: {fileID: 603964733}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &136357940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136357939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f003eec95a3664d4a9634e920bf70b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseCoreHP: 5
-  defeatImage: {fileID: 984572805}
-  healthBar: {fileID: 502354321}
 --- !u!4 &136357943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6820342364604048503, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
@@ -5930,17 +5915,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4310614304489658, guid: 5cbae0602ce9acf41a98fda3a353569a, type: 3}
   m_PrefabInstance: {fileID: 2034430116}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &502354321 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4210172812813129129, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
-  m_PrefabInstance: {fileID: 603964733}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d9e586c69ca6f249af37469f09ff770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &503044969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7599,13 +7573,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2308806549291678616, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
+      propertyPath: defeatImage
+      value: 
+      objectReference: {fileID: 984572805}
     - target: {fileID: 2746272603261215686, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2746272603261215686, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4210172812515723804, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
       propertyPath: m_AnchorMax.x

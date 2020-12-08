@@ -28,7 +28,7 @@ public class MenuScript : MonoBehaviour
     public void OnExitButton() { Application.Quit(); }
     public void OnOptionsButton() { Menu0GO.SetActive(false); Menu2GO.SetActive(true); }
     public void OnOptionCancelButton() { Menu0GO.SetActive(true); Menu2GO.SetActive(false); }
-    public void OnPlayOfflineButton() { SceneManager.LoadSceneAsync("TestingScene"); }
+    public void OnPlayOfflineButton() { SceneManager.LoadSceneAsync("Lvl 1"); }
     void Start()
     {
         

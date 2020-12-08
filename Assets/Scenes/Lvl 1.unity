@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3121bc14d64ec034980608f7b2343ad5, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5904,6 +5904,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8783306491909106419, guid: f02116c209ecd9e488fc4d2cd8996133, type: 3}
   m_PrefabInstance: {fileID: 1621758119}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &93865621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5753898609013434212, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
+  m_PrefabInstance: {fileID: 1663002066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &93865622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93865621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f003eec95a3664d4a9634e920bf70b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCoreHP: 5
+  defeatImage: {fileID: 569877634}
+  healthBar: {fileID: 1045396088}
+  currentCoreHP: 0
 --- !u!4 &93905952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
@@ -5998,7 +6019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &107749624
 Transform:
   m_ObjectHideFlags: 0
@@ -9607,6 +9628,7 @@ MonoBehaviour:
   waveText: {fileID: 2025630814}
   countdownTimer: {fileID: 362184953}
   timeBetweenWaves: 8
+  VictoryImage: {fileID: 0}
 --- !u!4 &416424964
 Transform:
   m_ObjectHideFlags: 0
@@ -10361,6 +10383,7 @@ MonoBehaviour:
   towerText: {fileID: 992951330}
   maxInteractionDistance: 1
   camera: {fileID: 0}
+  onTower: 0
 --- !u!114 &476133064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16099,6 +16122,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02116c209ecd9e488fc4d2cd8996133, type: 3}
+--- !u!114 &569877634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4210172812515723803, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
+  m_PrefabInstance: {fileID: 1663002066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &571722185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27031,6 +27065,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045396088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4210172812813129129, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
+  m_PrefabInstance: {fileID: 1663002066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9e586c69ca6f249af37469f09ff770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1049229450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 063e70de915dd8843afde64c2c744ef5, type: 3}
@@ -35342,7 +35387,8 @@ MonoBehaviour:
   interactText: {fileID: 601891914}
   towerText: {fileID: 992951330}
   maxInteractionDistance: 1
-  camera: {fileID: 0}
+  camera: {fileID: 1721986701}
+  onTower: 0
 --- !u!114 &1348537396
 MonoBehaviour:
   m_ObjectHideFlags: 0

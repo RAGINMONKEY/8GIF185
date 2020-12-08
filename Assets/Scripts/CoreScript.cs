@@ -18,18 +18,6 @@ public class CoreScript : MonoBehaviour
         healthBar.SetMaxHealth(baseCoreHP);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Destroy(other.gameObject);
-            currentCoreHP--;
-            healthBar.SetHealth(currentCoreHP);
-        }
-
-        
-    }
-
     private void Update()
     {
         if (currentCoreHP <= 0)
@@ -37,11 +25,15 @@ public class CoreScript : MonoBehaviour
     }
     private IEnumerator DefeatScreen()
     {
-        defeatImage.enabled =true;
+        defeatImage.enabled = true;
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("MenuScene");
-        
 
+    }
 
+    public void LoseHealth()
+    {
+        currentCoreHP--;
+        healthBar.SetHealth(currentCoreHP);
     }
 }
