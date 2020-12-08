@@ -127,7 +127,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnRedEnemy()
     {
-        Transform enemy = Instantiate(redEnemyPrefab,spawnPoint.position, spawnPoint.rotation);
+        Transform enemy = Instantiate(redEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
         enemy.GetComponentInChildren<SimpleAgent>().setTarget(target);
     }
 
