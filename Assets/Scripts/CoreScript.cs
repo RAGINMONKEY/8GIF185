@@ -18,18 +18,11 @@ public class CoreScript : MonoBehaviour
         healthBar.SetMaxHealth(baseCoreHP);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void LoseHealth()
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Destroy(other.gameObject);
-            currentCoreHP--;
-            healthBar.SetHealth(currentCoreHP);
-        }
-
-        
+        currentCoreHP--;
+        healthBar.SetHealth(currentCoreHP);
     }
-
     private void Update()
     {
         if (currentCoreHP <= 0)
