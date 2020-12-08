@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public TMP_Text interactText;
     public TMP_Text towerText;
+    public TMP_Text fullAmmoText;
     public float maxInteractionDistance = 1f;
 
     public GameObject camera;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     {
         camera = GameObject.FindGameObjectWithTag("MainCamera");
         towerText.GetComponent<TMP_Text>().enabled = false;
+        fullAmmoText.GetComponent<TMP_Text>().enabled = false;
         onTower = false;
         haveAmmo = false;
     }
@@ -32,6 +34,15 @@ public class Player : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+
+        if (haveAmmo)
+        {
+            fullAmmoText.GetComponent<TMP_Text>().enabled = true;
+        }
+        else
+        {
+            fullAmmoText.GetComponent<TMP_Text>().enabled = false;
+        }
         
             if (Physics.Raycast(ray, out hit, maxInteractionDistance))
             {
