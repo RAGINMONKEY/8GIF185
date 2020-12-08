@@ -6,6 +6,9 @@ public class DetectorEnemy : MonoBehaviour
 {
 	private void OnTriggerEnter(Collider other)
 	{
-		//Destroy(other.gameObject);
+		if (other.gameObject.tag == "Enemy")
+		{
+			Destroy(other.gameObject);
+		}
 	}
 }

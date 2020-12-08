@@ -1632,6 +1632,7 @@ MonoBehaviour:
   baseCoreHP: 5
   defeatImage: {fileID: 984572805}
   healthBar: {fileID: 502354321}
+  currentCoreHP: 0
 --- !u!4 &136357943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6820342364604048503, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
@@ -7667,7 +7668,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2457039445058988553, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6947d23aa0a40e740b61736e1c8615d6, type: 3}
 --- !u!1 &607241200
 GameObject:
