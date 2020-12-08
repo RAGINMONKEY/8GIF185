@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour
     {
         player = players.GetComponent<SwitchCharacters>();
         active = false;
-        ammo = 10;
+        ammo = 20;
     }
 
     // Update is called once per frame
@@ -192,7 +192,7 @@ public class Tower : MonoBehaviour
 
     public void fillAmmo()
     {
-        ammo = 10;
+        ammo = 20;
     }
 
     public void loseAmmo()
