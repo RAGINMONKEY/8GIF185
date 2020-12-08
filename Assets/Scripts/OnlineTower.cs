@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
 
-public class Tower : MonoBehaviour
+public class OnlineTower : MonoBehaviour
 {
-    SwitchCharacters player;
+    OnlinePlayers player;
     public GameObject players;
     Vector3 fireDirection;
     private bool player1;
@@ -36,7 +36,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = players.GetComponent<SwitchCharacters>();
+        player = players.GetComponent<OnlinePlayers>();
         active = false;
         ammo = 10;
     }
@@ -45,19 +45,7 @@ public class Tower : MonoBehaviour
     void Update()
     {
         GameObject camera;
-         //print(ammo);
-        if(player.getCurrCar() == 1)
-        {
-            camera = camera1;
-        }else if(player.getCurrCar() == 2)
-        {
-            camera = camera2;
-        }
-        else
-        {
-            camera = null;
-        }
-
+        camera = camera1;
         if (ammo > 0)
         {
             ammoTxt.GetComponent<TMP_Text>().text = ammo.ToString();
@@ -66,7 +54,7 @@ public class Tower : MonoBehaviour
         {
             ammoTxt.GetComponent<TMP_Text>().text = "0";
         }
-        if (((player.getCurrCar() == 1 && player1) || (player.getCurrCar() == 2 && player2)))
+        if (player.PlayerList[1].GetComponent<Player>().onTower)
         {
 
               ammoTxt.GetComponent<TMP_Text>().enabled = true;
@@ -116,10 +104,7 @@ public class Tower : MonoBehaviour
         }
     }
    
-    public void setPlayer(SwitchCharacters player)
-    {
-        this.player = player;
-    }
+   
 
     private void Shoot()
     {
@@ -127,7 +112,7 @@ public class Tower : MonoBehaviour
         loseAmmo();
         
         
-        if(player.getCurrCar() == 1)
+        if(player.PlayerList[1].GetComponent<Player>().onTower)
         {
            // GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z), Quaternion.identity);
             GameObject bulletGO = (GameObject)Instantiate(blueProjectilePrefab, new Vector3(firePoint1.position.x, firePoint1.position.y, firePoint1.position.z), firePoint1.rotation);
@@ -137,7 +122,7 @@ public class Tower : MonoBehaviour
            
 
         }
-        else if(player.getCurrCar() == 2)
+        else if(player.PlayerList[2].GetComponent<Player>().onTower)
         {
             GameObject bulletGO = (GameObject)Instantiate(redProjectilePrefab, new Vector3(firePoint2.position.x, firePoint2.position.y, firePoint2.position.z), firePoint2.rotation);
             ProjectileScript projectile = bulletGO.GetComponent<ProjectileScript>();
@@ -175,11 +160,11 @@ public class Tower : MonoBehaviour
     public void rotatePart(float radian)
     {
         Transform partToRotate;
-        if (player.getCurrCar() == 1)
+        if (player.PlayerList[1].GetComponent<Player>().onTower)
         {
             partToRotate = partToRotate1;
         }
-        else if (player.getCurrCar() == 2)
+        else if (player.PlayerList[2].GetComponent<Player>().onTower)
         {
             partToRotate = partToRotate2;
         }
