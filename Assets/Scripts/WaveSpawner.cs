@@ -56,7 +56,7 @@ public class WaveSpawner : MonoBehaviour
             countdown = timeBetweenWaves;
 
         }
-        if(waveIndex == 9)
+        if(waveIndex >= 9)
         {
             StartCoroutine(VictoryScreen());
         }
