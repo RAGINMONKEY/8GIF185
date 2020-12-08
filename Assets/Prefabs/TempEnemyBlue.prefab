@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df12c652b5e66734b9b5d42619bbedb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   healthBar: {fileID: 8670150528141847215}
   bloodParticles: {fileID: 5460242056131584170, guid: 31dd8126856b3f143b5cb7ddb9fcef39, type: 3}
   hurtSound: {fileID: 8300000, guid: 085e5ddc86b5e034ea5744cbb8ec5b53, type: 3}

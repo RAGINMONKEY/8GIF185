@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
     public Text waveText;
     public Text countdownTimer;
 
-    public float timeBetweenWaves = 15f;
+    private List<float> timeBetweenWaves = new List<float>(){15f, 10f, 10f, 15f, 30f, 35, 30f, 35f, 30f, 40f};
 
     [SerializeField] private Image VictoryImage = null;
 
@@ -23,7 +23,8 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex;
     private void Start()
     {
-        countdown = timeBetweenWaves;
+        print(timeBetweenWaves[0]);
+        countdown = timeBetweenWaves[0];
         waveIndex = 0;
         VictoryImage.enabled = false;
     }
@@ -53,7 +54,7 @@ public class WaveSpawner : MonoBehaviour
         {
             waveIndex++;
             SpawnWave();
-            countdown = timeBetweenWaves;
+            countdown = timeBetweenWaves[waveIndex];
 
         }
         if(waveIndex == 9)
@@ -116,7 +117,12 @@ public class WaveSpawner : MonoBehaviour
     }
     private IEnumerator SpawnRedWave()
     {
-        for (int i = 0; i < waveIndex; i++)
+        int maxIndex = waveIndex;
+        if (maxIndex > 7)
+        {
+            maxIndex = 4;
+        }
+        for (int i = 0; i < maxIndex; i++)
         {
             //Debug.Log("Spawn Red");
             SpawnRedEnemy();
@@ -133,7 +139,12 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnBlueWave()
     {
-        for (int i = 0; i < waveIndex; i++)
+        int maxIndex = waveIndex;
+        if (maxIndex > 7)
+        {
+            maxIndex = 4;
+        }
+        for (int i = 0; i < maxIndex; i++)
         {
            // Debug.Log("Spawn Blue");
             SpawnBlueEnemy();
@@ -150,7 +161,12 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnMagentaWave()
     {
-        for (int i = 0; i < waveIndex; i++)
+        int maxIndex = waveIndex;
+        if(maxIndex > 3)
+        {
+            maxIndex = 4;
+        }
+        for (int i = 0; i < maxIndex; i++)
         {
             SpawnMagentaEnemy();
             yield return new WaitForSeconds(0.5f);

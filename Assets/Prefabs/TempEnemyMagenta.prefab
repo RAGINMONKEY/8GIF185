@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f198ae3e46ee3545a96597c6d2db66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   healthBar: {fileID: 1203265237723142253}
   timeToTag: 3
   tagList: []
