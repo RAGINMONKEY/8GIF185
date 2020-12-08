@@ -40,12 +40,12 @@ public class WaveSpawner : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.B))
         {
-            StartCoroutine(SpawnBlueWave());
+           // StartCoroutine(SpawnBlueWave());
         } 
         
         if (Input.GetKeyUp(KeyCode.M))
         {
-            StartCoroutine(SpawnMagentaWave());
+           // StartCoroutine(SpawnMagentaWave());
         }
 
         countdown -= Time.deltaTime;
@@ -60,6 +60,15 @@ public class WaveSpawner : MonoBehaviour
         if(waveIndex == 9)
         {
             StartCoroutine(VictoryScreen());
+        }
+
+    if(waveIndex == 8)
+        {
+            GameObject temp1 = GameObject.Find("TempEnemyBlue(Clone)");
+            GameObject temp2 = GameObject.Find("TempEnemyRed(Clone)");
+            GameObject temp3 = GameObject.Find("TempEnemyMAgenta(Clone)");
+            if(temp1 == null && temp2 == null && temp3 == null)
+                StartCoroutine(VictoryScreen());
         }
     }
 
