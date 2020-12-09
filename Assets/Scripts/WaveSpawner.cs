@@ -19,6 +19,7 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] private Image VictoryImage = null;
     [SerializeField] private Text startText = null;
+    [SerializeField] private Text pauseText = null;
 
     private float countdown;
     private int waveIndex;
@@ -42,9 +43,9 @@ public class WaveSpawner : MonoBehaviour
             startText.enabled = false;
         } 
         
-        if (Input.GetKeyUp(KeyCode.B))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-           // StartCoroutine(SpawnBlueWave());
+            TogglePause();
         } 
         
         if (Input.GetKeyUp(KeyCode.M))
@@ -76,6 +77,19 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+   void TogglePause()
+    {
+        if (Time.timeScale != 0f)
+        {
+            Time.timeScale = 0f;
+            pauseText.enabled = true;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pauseText.enabled = false;
+        }
+    }
     IEnumerator VictoryScreen()
     {
         VictoryImage.enabled = true;
