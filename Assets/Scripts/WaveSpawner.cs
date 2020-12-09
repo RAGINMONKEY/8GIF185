@@ -32,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
         VictoryImage.enabled = false;
         hasStarted = false;
         startText.enabled = true;
+        pauseText.enabled = false;
     }
     private void Update()
     {
