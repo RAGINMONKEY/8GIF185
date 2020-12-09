@@ -9568,6 +9568,8 @@ MonoBehaviour:
   VictoryImage: {fileID: 1753034022}
   startText: {fileID: 508641720}
   pauseText: {fileID: 1581231014}
+  player1: {fileID: 1348537392}
+  player2: {fileID: 476133061}
 --- !u!4 &416424964
 Transform:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Image VictoryImage = null;
     [SerializeField] private Text startText = null;
     [SerializeField] private Text pauseText = null;
+    [SerializeField] private GameObject player1 = null;
+    [SerializeField] private GameObject player2 = null;
 
     private float countdown;
     private int waveIndex;
@@ -46,6 +48,7 @@ public class WaveSpawner : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            
             TogglePause();
         } 
         
@@ -80,15 +83,18 @@ public class WaveSpawner : MonoBehaviour
 
    void TogglePause()
     {
-        if (Time.timeScale != 0f)
-        {
-            Time.timeScale = 0f;
-            pauseText.enabled = true;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            pauseText.enabled = false;
+        if(!player1.GetComponent<Player>().onTower && !player2.GetComponent<Player>().onTower)
+            {
+            if (Time.timeScale != 0f)
+            {
+                Time.timeScale = 0f;
+                pauseText.enabled = true;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                pauseText.enabled = false;
+            }
         }
     }
     IEnumerator VictoryScreen()
