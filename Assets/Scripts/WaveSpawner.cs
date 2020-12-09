@@ -18,24 +18,28 @@ public class WaveSpawner : MonoBehaviour
     private List<float> timeBetweenWaves = new List<float>(){15f, 10f, 10f, 15f, 30f, 35, 30f, 35f, 30f, 40f};
 
     [SerializeField] private Image VictoryImage = null;
+    [SerializeField] private Text startText = null;
 
     private float countdown;
     private int waveIndex;
+    private bool hasStarted;
     private void Start()
     {
         print(timeBetweenWaves[0]);
         countdown = timeBetweenWaves[0];
         waveIndex = 0;
         VictoryImage.enabled = false;
+        hasStarted = false;
+        startText.enabled = true;
     }
     private void Update()
     {
         waveText.text = "Wave " + waveIndex + "/8";
         countdownTimer.text = countdown.ToString("0.0");
-        if(Input.GetKeyUp(KeyCode.R))
+        if(Input.GetKeyUp(KeyCode.P))
         {
-           // StartCoroutine(SpawnRedWave());
-           // countdown = timeBetweenWaves;
+            hasStarted = true;
+            startText.enabled = false;
         } 
         
         if (Input.GetKeyUp(KeyCode.B))
@@ -47,8 +51,8 @@ public class WaveSpawner : MonoBehaviour
         {
            // StartCoroutine(SpawnMagentaWave());
         }
-
-        countdown -= Time.deltaTime;
+        if(hasStarted)
+         countdown -= Time.deltaTime;
 
         if(countdown <= 0)
         {
@@ -78,6 +82,7 @@ public class WaveSpawner : MonoBehaviour
         waveText.enabled = false;
         countdown = 10f;
         yield return new WaitForSeconds(10f);
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("MenuScene");
     }
     void SpawnWave()

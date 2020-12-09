@@ -32,6 +32,7 @@ public class CoreScript : MonoBehaviour
     {
         defeatImage.enabled =true;
         yield return new WaitForSeconds(5f);
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("MenuScene");
         
 
