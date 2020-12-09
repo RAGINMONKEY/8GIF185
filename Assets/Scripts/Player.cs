@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
                     if (Input.GetButtonDown("Interact"))
                     {
                     hit.transform.GetComponent<Tower>().fillAmmo();
-                    print("tour rechargé");
                     haveAmmo = false;
                      }
                 }
